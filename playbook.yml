@@ -1,20 +1,20 @@
 - name: Custom Desktop tweeks
-  hosts: kurron-desktop-tweaks 
+  hosts: clefevre-desktop-tweaks 
   tasks:
       - name: Copy etc change script to a safe place
         copy: src=scripts/set-etc-environment.sh dest=/tmp/set-etc-environment.sh owner=root group=root mode=755 backup=no
       - name: Add silly environment variable
-        command: /tmp/set-etc-environment.sh CUSTOM_RON_WAS_HERE true 
+        command: /tmp/set-etc-environment.sh CUSTOM_CHRIS_WAS_HERE true 
       - name: Copy Git configuration file
         copy: src=files/.gitconfig dest=/home/vagrant/.gitconfig owner=vagrant group=vagrant mode=644 backup=no
       - name: Copy bashrc change script to a safe place
         copy: src=scripts/append-line-to-bashrc.sh dest=/tmp/append-line-to-bashrc.sh owner=root group=root mode=755 backup=no
       - name: set editor to VI
         command: /tmp/append-line-to-bashrc.sh editor 'set -o vi' 
-      - name: create the rkurr group 
-        group: name=rkurr state=present
-      - name: create the rkurr account 
-        user: name=rkurr group=rkurr groups=docker state=present password=$6$hh4dPYYBFAJzo$rLGVJWlaikReLMgLc9Fd.uvfXViTfBPT7..sye4X2drCo8qr/TORaNuaQfCyZETNzYZCX2euaq9bMN7TQHHMt1
+      - name: create the clefevre group 
+        group: name=clefevre state=present
+      - name: create the clefevre account 
+        user: name=clefevre group=clefevre groups=docker state=present password=$6$hh4dPYYBFAJzo$rLGVJWlaikReLMgLc9Fd.uvfXViTfBPT7..sye4X2drCo8qr/TORaNuaQfCyZETNzYZCX2euaq9bMN7TQHHMt1
       - name: Copy login icon  
         copy: src=files/han-solo.png dest=/home/vagrant/.face owner=vagrant group=vagrant backup=no mode=644
       - name: Remove the desktop emacs file
