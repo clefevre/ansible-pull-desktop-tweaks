@@ -16,7 +16,7 @@
       - name: create the clefevre account 
         user: name=clefevre group=clefevre groups=docker state=present password=$6$hh4dPYYBFAJzo$rLGVJWlaikReLMgLc9Fd.uvfXViTfBPT7..sye4X2drCo8qr/TORaNuaQfCyZETNzYZCX2euaq9bMN7TQHHMt1
       - name: Copy login icon  
-        copy: src=files/han-solo.png dest=/home/vagrant/.face owner=vagrant group=vagrant backup=no mode=644
+        copy: src=files/nargacuga_icon.png dest=/home/vagrant/.face owner=vagrant group=vagrant backup=no mode=644
       - name: Remove the desktop emacs file
         file: path=/home/vagrant/Desktop/emacs.desktop state=absent 
       - name: Create the terminal configuration folder 
